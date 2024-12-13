@@ -40,7 +40,12 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('News Headlines'),
+        backgroundColor: Colors.yellow,
+        title: Center(
+            child: const Text(
+          'NEWS HEADLINES',
+          style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+        )),
       ),
       body: Column(
         children: [
@@ -56,7 +61,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ],
             ),
           ),
-          // TextField for search
+          
           Padding(
             padding: const EdgeInsets.all(8.0),
             child: TextField(
@@ -91,7 +96,7 @@ class _HomeScreenState extends State<HomeScreen> {
                 } else {
                   List<NewsApiModel> articles = snapshot.data!;
 
-                  // Filter the articles based on search query
+                  
                   if (_searchQuery.isNotEmpty) {
                     articles = articles.where((article) {
                       return article.title
@@ -113,7 +118,7 @@ class _HomeScreenState extends State<HomeScreen> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                // Larger Image
+                                
                                 article.urlToImage.isNotEmpty
                                     ? Image.network(
                                         article.urlToImage,
@@ -124,7 +129,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                     : const Icon(Icons.image_not_supported,
                                         size: 100),
                                 const SizedBox(height: 8),
-                                // Title
+                                
                                 Text(
                                   article.title,
                                   style: const TextStyle(
@@ -135,7 +140,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 const SizedBox(height: 4),
-                                // Description
+                                
                                 Text(
                                   article.description,
                                   style: const TextStyle(fontSize: 14),
@@ -143,7 +148,7 @@ class _HomeScreenState extends State<HomeScreen> {
                                   overflow: TextOverflow.ellipsis,
                                 ),
                                 const SizedBox(height: 8),
-                                // Read More Button
+                                
                                 Align(
                                   alignment: Alignment.centerRight,
                                   child: TextButton(
